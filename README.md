@@ -31,7 +31,7 @@ helmfile_file_mode: '0755'
 Variable            | Description
 ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------
 helmfile_app        | Defines the app to install i.e. **helmfile**
-helmfile_version    | Defined to dynamically fetch the desired version to install. Defaults to: **6.5.0**
+helmfile_version    | Defined to dynamically fetch the desired version to install. Defaults to: **0.143.0**
 helmfile_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
 helmfile_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 helmfile_dl_url     | Defines URL to download the helmfile binary from.
