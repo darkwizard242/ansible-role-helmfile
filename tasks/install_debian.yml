@@ -2,7 +2,7 @@
 # tasks file for helmfile | Debian/Ubuntu Family
 
 - name: Debian/Ubuntu Family | Downloading binary for {{ helmfile_app }} {{ helmfile_version }} to {{ helmfile_bin_path }}
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ helmfile_dl_url }}"
     dest: "{{ helmfile_bin_path }}/{{ helmfile_app }}"
     owner: "{{ helmfile_file_owner }}"
