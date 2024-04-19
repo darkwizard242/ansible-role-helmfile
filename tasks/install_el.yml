@@ -10,4 +10,4 @@
     remote_src: yes
     owner: "{{ helmfile_file_owner }}"
     group: "{{ helmfile_file_group }}"
-    mode: "{{ helmfile_file_permission_mode }}"
+    mode: "{{ helmfile_file_mode }}"
