@@ -16,10 +16,18 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helmfile_app: helmfile
-helmfile_version: 0.163.1
-helmfile_os: linux
-helmfile_arch: amd64
-helmfile_dl_url: https://github.com/helmfile/{{ helmfile_app }}/releases/download/v{{ helmfile_version }}/{{ helmfile_app }}_{{ helmfile_version }}_{{ helmfile_os }}_{{ helmfile_arch }}.tar.gz
+helmfile_version: 0.165.0
+helmfile_os: "{{ ansible_system | lower }}"
+helmfile_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+helmfile_dl_url: https://github.com/helmfile/{{ helmfile_app }}/releases/download/v{{ helmfile_version }}/{{ helmfile_app }}_{{ helmfile_version }}_{{ helmfile_os }}_{{ helmfile_architecture_map[ansible_architecture] }}.tar.gz
 helmfile_bin_path: /usr/local/bin
 helmfile_file_owner: root
 helmfile_file_group: root
@@ -28,17 +36,17 @@ helmfile_file_mode: '0755'
 
 ### Variables table:
 
-Variable            | Description
-------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------
-helmfile_app        | Defines the app to install i.e. **helmfile**
-helmfile_version    | Defined to dynamically fetch the desired version to install. Defaults to: **0.163.1**
-helmfile_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
-helmfile_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
-helmfile_dl_url     | Defines URL to download the helmfile binary from.
-helmfile_bin_path   | Defined to dynamically set the appropriate path to store helmfile binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
-helmfile_file_owner | Owner for the binary file of helmfile.
-helmfile_file_group | Group for the binary file of helmfile.
-helmfile_file_mode  | Mode for the binary file of helmfile.
+Variable                  | Description
+------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------
+helmfile_app              | Defines the app to install i.e. **helmfile**
+helmfile_version          | Defined to dynamically fetch the desired version to install. Defaults to: **0.165.0**
+helmfile_os               | Defines os type. Used for obtaining the correct type of binaries based on OS type.
+helmfile_architecture_map | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture.
+helmfile_dl_url           | Defines URL to download the helmfile binary from.
+helmfile_bin_path         | Defined to dynamically set the appropriate path to store helmfile binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+helmfile_file_owner       | Owner for the binary file of helmfile.
+helmfile_file_group       | Group for the binary file of helmfile.
+helmfile_file_mode        | Mode for the binary file of helmfile.
 
 ## Dependencies
 
