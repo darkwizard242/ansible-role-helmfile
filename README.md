@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helmfile_app: helmfile
-helmfile_version: 0.169.0
+helmfile_version: 0.169.1
 helmfile_os: "{{ ansible_system | lower }}"
 helmfile_architecture_map:
   amd64: amd64
@@ -39,7 +39,7 @@ helmfile_file_mode: '0755'
 Variable                  | Description
 ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------
 helmfile_app              | Defines the app to install i.e. **helmfile**
-helmfile_version          | Defined to dynamically fetch the desired version to install. Defaults to: **0.169.0**
+helmfile_version          | Defined to dynamically fetch the desired version to install. Defaults to: **0.169.1**
 helmfile_os               | Defines os type. Used for obtaining the correct type of binaries based on OS type.
 helmfile_architecture_map | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture.
 helmfile_dl_url           | Defines URL to download the helmfile binary from.
