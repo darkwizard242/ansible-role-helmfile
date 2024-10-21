@@ -2,7 +2,7 @@
 # defaults file for helmfile
 
 helmfile_app: helmfile
-helmfile_version: 0.169.0
+helmfile_version: 0.169.1
 helmfile_os: "{{ ansible_system | lower }}"
 helmfile_architecture_map:
   amd64: amd64
